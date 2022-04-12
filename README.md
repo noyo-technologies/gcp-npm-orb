@@ -1,18 +1,13 @@
-# Orb Project Template
+# Google Artifact Registry for Node Orb for CircleCI
 
 [![CircleCI Build Status](https://circleci.com/gh/noyo-technologies/gcp-npm-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/noyo-technologies/gcp-npm-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/noyo/gcp-npm.svg)](https://circleci.com/orbs/registry/orb/noyo/gcp-npm) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/noyo-technologies/gcp-npm-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
 
-
-A starter template for orb projects. Build, test, and publish orbs automatically on CircleCI with [Orb-Tools](https://circleci.com/orbs/registry/orb/circleci/orb-tools).
-
-Additional READMEs are available in each directory.
-
-
+Workflow and jobs for publishing NPM packages to Google Artifact Registry.
 
 ## Resources
 
-[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/noyo/gcp-npm-orb) - The official registry page of this orb for all versions, executors, commands, and jobs described.
+[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/noyo/gcp-npm) - The official registry page of this orb for all versions, executors, commands, and jobs described.
 [CircleCI Orb Docs](https://circleci.com/docs/2.0/orb-intro/#section=configuration) - Docs for using and creating CircleCI Orbs.
 
 ### How to Contribute
