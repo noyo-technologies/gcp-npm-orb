@@ -48,9 +48,6 @@ commands:
         default:
           - run: npm publish
     steps:
-      - orb-tools/check-env-var-param:
-          command-name: Checking whether required env vars are set to retrieve Artifact Registry configuration...
-          param: <<parameters.google-repository>>,<<parameters.google-location>>
       - run:
           name: Create repository configuration
           command: |
