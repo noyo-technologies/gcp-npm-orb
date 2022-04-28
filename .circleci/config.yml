@@ -9,7 +9,7 @@ orbs:
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
-  test-pack:
+  publish-dev-and-promote:
     jobs:
       - orb-tools/lint # Lint Yaml files
       - orb-tools/pack # Pack orb source
@@ -20,21 +20,14 @@ workflows:
           requires:
             - orb-tools/lint
             - orb-tools/pack
-
-  deploy:
-    jobs:
-      # Publish a semver version of the orb. relies on
-      # the commit subject containing the text "[semver:patch|minor|major|skip]"
-      # as that will determine whether a patch, minor or major
-      # version will be published or if publishing should
-      # be skipped.
-      # e.g. [semver:patch] will cause a patch version to be published.
       - orb-tools/dev-promote-prod-from-commit-subject:
           orb-name: noyo/gcp-npm
           context: orb-publishing
           add-pr-comment: false
           fail-if-semver-not-indicated: true
           publish-version-tag: false
+          requires:
+            - orb-tools/publish-dev
           filters:
             branches:
               only:
