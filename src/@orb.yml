@@ -42,6 +42,10 @@ commands:
           default: GOOGLE_LOCATION
           description: The location of the Google Artifact Registry to upload packages to.
           type: env_var_name
+      scope:
+          default: SCOPE
+          description: The scope used to specify the repository. Include the at sign.
+          type: env_var_name
       publish-steps:
         description: The steps to run to upload the node packages
         type: steps
@@ -52,7 +56,7 @@ commands:
           name: Create repository configuration
           command: |
             echo ${<< parameters.google-repository >>} > .npm-repository
-            gcloud artifacts print-settings npm --repository=${<< parameters.google-repository >>} --location=${<< parameters.google-location >>} | tail -n +2 > .npmrc
+            gcloud artifacts print-settings npm --repository=${<< parameters.google-repository >>} --location=${<< parameters.google-location >>} --scope=${<< parameters.scope >>} | tail -n +2 > .npmrc
             npm run artifactregistry-login
       - steps: << parameters.publish-steps >>
 
@@ -89,6 +93,10 @@ jobs:
         google-location:
           default: GOOGLE_LOCATION
           description: The location of the Google Artifact Registry to upload packages to.
+          type: env_var_name
+        scope:
+          default: SCOPE
+          description: The scope used to specify the repository. Include the at sign.
           type: env_var_name
         google-gcloud-version:
           default: 379.0.0
@@ -137,5 +145,6 @@ jobs:
       - publish:
           google-repository: << parameters.google-repository >>
           google-location: << parameters.google-location >>
+          scope: << parameters.scope >>
           publish-steps: << parameters.publish-steps >>
       - steps: << parameters.after-publish-steps >>
